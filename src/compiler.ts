@@ -48,7 +48,7 @@ async function compile(image: string, fileName: string, file: Buffer) {
   // Get output (compilation errors)
   const err = stderr.getContentsAsString();
   if (err) {
-    throw err;
+    throw new Error(err);
   }
   return bundle;
 }
