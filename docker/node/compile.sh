@@ -1,6 +1,6 @@
 #!/bin/bash
 
 cd src
-esvalidate bot.js
+>&2 esvalidate bot.js
 
 mv * ../build/
