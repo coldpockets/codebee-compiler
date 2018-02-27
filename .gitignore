@@ -60,6 +60,7 @@ typings/
 .vscode/
 
 .ignore/
+test/
 
 dist/
 docker/**/*/src

@@ -1,3 +1,4 @@
+import * as archiver from 'archiver';
 import * as Docker from 'dockerode';
 import * as fs from 'fs';
 import { Writable } from 'stream';
@@ -58,4 +59,14 @@ export function compileCpp(file: Buffer) {
 
 export function compileJavaScript(file: Buffer) {
   return compile('node-compiler', 'bot.js', file);
+}
+
+export async function compileScript(file: Buffer, extension: string) {
+  const stream = new WritableStreamBuffer();
+  const tar = archiver('tar', { gzip: true });
+  tar.pipe(stream);
+  tar.append(file, { name: `build/bot.${extension}` });
+  await tar.finalize();
+  await new Promise(resolve => stream.on('finish', resolve));
+  return stream.getContents();
 }
