@@ -29,6 +29,7 @@
     "archiver": "^2.1.1",
     "dockerode": "^2.5.4",
     "fs-extra": "^5.0.0",
+    "request": "^2.83.0",
     "simple-git": "^1.91.0",
     "stream-buffers": "^3.0.1",
     "tmp": "0.0.33"
