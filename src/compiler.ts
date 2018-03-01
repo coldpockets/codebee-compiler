@@ -18,11 +18,10 @@ async function compile(image: string, fileName: string, file: Buffer) {
     stdout: false,
     stream: true,
   });
+  const end = new Promise(resolve => stream.on('end', resolve));
 
   const stderr = new WritableStreamBuffer();
-  stream.pipe(stderr);
-
-  const end = new Promise(resolve => stream.on('end', resolve));
+  container.modem.demuxStream(stream, null, stderr);
 
   let bundle: Buffer;
   try {
