@@ -1,5 +1,10 @@
 # Codebee Compiler
 
+# Don't use this!
+Everything here has been moved to https://github.com/coldpockets/codebee-core
+
+---
+
 ## Prerequisites
 1. Install Docker
 2. Expose Docker daemon on tcp without tls
